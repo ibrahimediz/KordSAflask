@@ -1,0 +1,2 @@
+# docker build -t emreimage .
+# docker run --name emre_flask_project -p 5051:5051 emreimage

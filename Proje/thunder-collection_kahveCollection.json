@@ -1,0 +1,89 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "kahveCollection",
+    "dateExported": "2023-08-04T13:04:24.893Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "77ca2fa2-649a-41fb-b0b4-0491440309b8",
+            "colId": "9847f1da-21f8-499e-b517-d2c1f8ca77cc",
+            "containerId": "",
+            "name": "getKahveler",
+            "url": "https://5055-ibrahimediz-kordsaflask-dkv7zrrvk2q.ws-us102.gitpod.io/kahve",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-04T12:58:28.073Z",
+            "modified": "2023-08-04T12:58:28.073Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "eec8d51d-c26b-4902-a347-40fbe09a75cd",
+            "colId": "9847f1da-21f8-499e-b517-d2c1f8ca77cc",
+            "containerId": "",
+            "name": "PostKahve",
+            "url": "https://5055-ibrahimediz-kordsaflask-dkv7zrrvk2q.ws-us102.gitpod.io/kahve",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-08-04T12:59:42.720Z",
+            "modified": "2023-08-04T12:59:42.720Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\"item\": \"Cappucino\",\n    \"price\": 35,\n    \"size\": \"Grand\",\n    \"icerik\":{}\n    }",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "405db1c6-e017-45ec-997d-c88fc800e23f",
+            "colId": "9847f1da-21f8-499e-b517-d2c1f8ca77cc",
+            "containerId": "",
+            "name": "postIcerik",
+            "url": "https://5055-ibrahimediz-kordsaflask-dkv7zrrvk2q.ws-us102.gitpod.io/kahve/Lattes/icerik",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-04T13:01:22.730Z",
+            "modified": "2023-08-04T13:01:22.730Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"kahve\":200,\n  \"sut\":100,\n  \"laktozsuz\":[1,2]\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "22136be9-3100-499a-a334-a9682e42bee6",
+            "colId": "9847f1da-21f8-499e-b517-d2c1f8ca77cc",
+            "containerId": "",
+            "name": "getKahve",
+            "url": "https://5055-ibrahimediz-kordsaflask-dkv7zrrvk2q.ws-us102.gitpod.io/kahve/Lattes",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-08-04T13:02:15.289Z",
+            "modified": "2023-08-04T13:02:15.289Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "02fc31b8-c63f-41dc-b794-b52836a09836",
+            "colId": "9847f1da-21f8-499e-b517-d2c1f8ca77cc",
+            "containerId": "",
+            "name": "getIcerik",
+            "url": "https://5055-ibrahimediz-kordsaflask-dkv7zrrvk2q.ws-us102.gitpod.io/kahve/Lattes/icerik",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2023-08-04T13:04:13.023Z",
+            "modified": "2023-08-04T13:04:13.023Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
