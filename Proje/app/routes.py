@@ -46,3 +46,60 @@ def getIcerik(item):
         if da["item"] == item:
             return da
     return {"message":"Kahve Bulunamadı"},404
+
+
+
+import numpy as np
+from tensorflow.keras.models import load_model
+import pickle
+import os
+
+@app.get("/sistemtest")
+def sistemtest():
+    sozluk = {}
+    try:
+        # print("ADDRESSS:",app.config["MODEL_ADRES"])
+        # model = load_model(app.config["MODEL_ADRES"])
+        model = load_model("flaskicinmodel.hdf5")
+        if model:
+            print("MODELiçeriği",model)
+            sozluk["MODEL_YUKLENDI"] = "OK"
+    except Exception as hata:
+        print("MODEL",hata)
+        sozluk["MODEL_YUKLENDI"] = str(hata)
+    try:
+        # olcek = pickle.load(open(app.config['OLCEK_ADRES'],"rb"))
+        olcek = pickle.load(open("olcek.pkl","rb"))
+        if model:
+            sozluk["OLCEK_YUKLENDI"] = "OK"
+    except Exception as hata:
+        print("OLCEK",hata)
+        sozluk["OLCEK_YUKLENDI"] = str(hata)
+    # yeni_veri = [[3.57,7.5,-2.4,-0.35]]
+    # sonuc = model.predict(olcek.transform(yeni_veri))[0]
+    # sozluk["MODEL_SONUC"] = str(sonuc)
+    return sozluk
+
+
+
+@app.post("/tahmin")
+def tahminEt():
+    try:
+        # model = load_model(app.config["MODEL_ADRES"])
+        model = load_model("flaskicinmodel.hdf5")
+    except Exception as hata:
+        print("MODEL",hata)
+    try:
+        # olcek = pickle.load(open(app.config['OLCEK_ADRES'],"rb"))
+        olcek = pickle.load(open("olcek.pkl","rb"))
+    except Exception as hata:
+        print("OLCEK",hata)
+    request_data = request.get_json()
+    # yeni_veri = [[3.57,7.5,-2.4,-0.35]]
+    # variace	skewness	curtosis	entropy	
+    liste = [[request_data["variace"],request_data["skewness"],request_data["curtosis"],request_data["entropy"]]]
+    olcekli = olcek.transform(liste)
+    sonuc = model.predict(olcekli)
+    print("SONUC",sonuc)
+    print("SONUC",np.round(sonuc)[0])   
+    return {"tahmin":int(np.round(sonuc)[0])},201
